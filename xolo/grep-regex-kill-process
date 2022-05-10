@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo netstat -tulpn # get list of active processes
+sudo netstat -tulpn | grep -Po '([0-9]*)(?=/node)' # run a grep regex to isolate process number (searching for /node process here)
+sudo netstat -tulpn | grep -Po '([0-9]*)(?=/node)' | xargs -I{} sudo kill -9 {} # use xargs to pass result to kill to kill the process
+

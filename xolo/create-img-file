@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# create an img file and mounts it as use as a virtual usb etc
+# adapted from: https://askubuntu.com/questions/667291/create-blank-disk-image-for-file-storage
+
+# create the img file
+dd if=/dev/zero of=image.img iflag=fullblock bs=1M count=100 && sync
+
+# list current loops in use
+losetup
+
+# choose a loop[number] that doesn't exist
+sudo losetup loop1 image.img
+
+# now open gparted
+sudo -H gparted /dev/loop1
+
+# Device -> Create Partition Table (msdos)
+# Partition -> New, File System -> fat32
+# Click "green" apply tick to complete tasks
+# close gparted
+
+# unmount the device
+sudo losetup -d /dev/loop1
+
+# use as a virtual USB device (allows read and write)
+sudo losetup loop1 image.img

@@ -1,0 +1,80 @@
+#!/bin/sh
+
+# 
+# xolo, a much improved version of solo
+# 
+# copy xolo.sh to your /usr/local/bin folder (mv xolo.sh /usr/local/bin/xolo) - I drop the .sh for ease of use
+# and make sure it's executable (chmod 777 xolo)
+# 
+# add the following lines to your ~/.bashrc file:
+#
+#    export XOLO_USER=user@1.2.3.4
+#    export XOLO_ID_RSA=~/.ssh/path/to/your/id_rsa
+# 
+# On Mac add to either ~/.bash_profile OR ~/.zshrc (for zsh terminal) instead
+# 
+# xolo help
+# 
+# project pushes are stored as compressed (tar.gz) and encrypted (.cpt) files on server in ~/xolo/, e.g.
+# my-project.YEAR.MONTH.DATE.HOURS.MINS.SECONDS.NANOSECONDS.TIMESTAMP.tar.gz.cpt
+# 
+
+if [ "$1" = "help" ]; then
+        echo "xolo solo developer version control v0.01"
+        echo "       xolo list"
+        echo "       xolo pull project-name pw"
+        echo "       xolo push project-name pw"
+        echo "Dependencies: date, tar, ccrypt, ssh, scp, sed"
+fi
+
+if [ "$1" = "list" ]; then
+
+        ssh $XOLO_USER "ls ~/xolo"
+fi
+
+if [ "$1" = "push" ]; then
+
+        # $2 = project folder name
+        # $3 = password or password file
+
+        login=$XOLO_USER
+        idfile=$XOLO_ID_RSA
+
+        current_time=$(ssh $login date "+%Y.%m.%d.%H.%M.%S.%N.%s") # get current time
+        file_name=$2.$current_time.tar.gz # create the new file name
+        tar czf $file_name $2 # make the tar ball
+
+        if [ -f "$3" ]; then
+                ccrypt -e -k $3 $file_name # encrypt the file using the password contained in the password file
+        else 
+                ccrypt -e -K $3 $file_name # encrypt the file using the password
+        fi
+
+        ssh $login "mkdir -p xolo" # make sure we've got a xolo folder
+        ssh $login "mkdir -p xolo/"$2 # make sure we've got a project directory in xolo/
+        scp -i $idfile $file_name.cpt $login":xolo/"$2 # copy the tar ball over to the server
+        rm $file_name.cpt # remove the local tar file
+fi
+
+if [ "$1" = "pull" ]; then
+
+        # $2 = project folder name
+        # $3 = password or password file
+
+        login=$XOLO_USER
+        idfile=$XOLO_ID_RSA
+
+        latest_file=$(ssh $login "ls -t ~/xolo/"$2" | head -1")
+        scp -i $idfile $login":xolo/"$2"/"$latest_file . # download latest file to current directory
+
+        if [ -f "$3" ]; then
+                ccrypt -d -k $3 $latest_file # decrypt the file using the password contained in the password file
+        else
+                ccrypt -d -K $3 $latest_file # decrypt the file using the password
+        fi
+
+        tar_file=${latest_file%.cpt} # remove .ctp extension from file name
+        tar xzf $tar_file # decompress the folder
+        rm $tar_file # remove the local tar file
+        echo "Created $2"
+fi

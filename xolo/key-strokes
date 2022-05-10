@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# wait for key strokes in a non-blocking fashion
+
+oldvar=""
+
+while true
+do
+	if [ "$oldvar" != "$var" ]; then
+    		echo "$var"
+	fi
+
+	oldvar=$var
+
+	IFS= read -r -t 0.5 -n 1 -s holder && var="$holder"
+
+done

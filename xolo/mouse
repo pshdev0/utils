@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# get mouse information (parse it to get the individual values)
+# use e.g. xdotool to set mouse actions
+
+while true
+do
+	sleep 1
+	xinput --query-state 10    # use xinput to identify the mouse ID (10 here)
+done
