@@ -51,4 +51,8 @@ for(var index = START_STUDENT_INDEX; index < Math.min(END_STUDENT_INDEX, list.le
     console.log(index + ": Found " + zipLinks.length + " zip files for student " + id + ".");
 }
 
-console.log(rtn); // output the object
+var output = "";
+let list = Object.entries(rtn);
+for(var c1 = 0; c1 < list.length; c1++) output += [list[c1][0], list[c1][1].length, ...list[c1][1]].join("\n") + "\n";
+
+console.log(output);
