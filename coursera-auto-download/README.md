@@ -7,7 +7,7 @@ Automatically scan Coursera to download student IDs and associated ZIP files.
 3. This will scan the current page for relevant URLs and automatically open / close the student pages and scan them for ZIP file URLs.
 4. Once completed you'll see a list of student IDs, # zips, and zip file url links, which you need to copy into a text file.
 
-5. Once you've got all the data into a text file, copy it into a folder of your choice.
+5. Once you've got all the data into a text file (call it `data.txt`), copy it into a folder of your choice.
 6. Run the bash script `sh auto-download.sh` to process the text file, which will automatically create student ID folders and download all the zip files.
 
 Hopefully it will save you some time ! I successfully downloaded all my student zip files automatically (around 50)
