@@ -17,6 +17,7 @@ do
     filename=${filename##*/}
 
     curl -o "./$studentid/$filename" --create-dirs "$line"
+    # unzip - add unzip code here...
   done
 
 echo "";
