@@ -1,3 +1,6 @@
+var START_STUDENT_INDEX = 0;
+var END_STUDENT_INDEX = 5;
+
 var urls = document.getElementsByTagName('a');
 var rtn = {};
 for (url in urls) {
@@ -7,7 +10,7 @@ for (url in urls) {
 }
 
 console.log("Found " + Object.keys(rtn).length + " students.");
-console.log("Scanning for assignments... please wait. Each student will take 20 seconds unless you can find a way to detect page loaded state ?");
+console.log("Scanning for assignments, please wait...");
 
 let list = Object.entries(rtn);
 
@@ -25,7 +28,7 @@ function waitUntilLoaded(resolve) {
     }, 500);
 }
 
-for(var index = 0; index < list.length; index++) { // loop through all students
+for(var index = START_STUDENT_INDEX; index < Math.min(END_STUDENT_INDEX, list.length); index++) { // loop through all students
 
     let id = list[index][0]; // student id
     let url = list[index][1]; // url to student zip download and grading page
