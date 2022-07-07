@@ -1,5 +1,5 @@
-var START_STUDENT_INDEX = 0;
-var END_STUDENT_INDEX = 5;
+var START_INDEX = 0;
+var END_INDEX = 5;
 
 var urls = document.getElementsByTagName('a');
 var rtn = {};
@@ -28,7 +28,7 @@ function waitUntilLoaded(resolve) {
     }, 500);
 }
 
-for(var index = START_STUDENT_INDEX; index < Math.min(END_STUDENT_INDEX, list.length); index++) { // loop through all students
+for(var index = START_INDEX; index < Math.min(END_INDEX, list.length); index++) { // loop through all students
 
     let id = list[index][0]; // student id
     let url = list[index][1]; // url to student zip download and grading page
@@ -51,8 +51,11 @@ for(var index = START_STUDENT_INDEX; index < Math.min(END_STUDENT_INDEX, list.le
     console.log(index + ": Found " + zipLinks.length + " zip files for student " + id + ".");
 }
 
-var output = "";
-let list = Object.entries(rtn);
-for(var c1 = 0; c1 < list.length; c1++) output += [list[c1][0], list[c1][1].length, ...list[c1][1]].join("\n") + "\n";
+console.log(rtn); // output the object
 
+var output = "";
+let list2 = Object.entries(rtn);
+for(var c1 = START_INDEX; c1 < Math.min(END_INDEX, list2.length); c1++) {
+    output += [list2[c1][0], list2[c1][1].length, ...list2[c1][1]].join("\n") + "\n";
+}
 console.log(output);
