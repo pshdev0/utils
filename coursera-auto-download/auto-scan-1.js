@@ -1,9 +1,7 @@
 var urls = document.getElementsByTagName('a');
 var rtn = {};
 for (url in urls) {
-    if(urls[url].href && 
-urls[url].href.startsWith("https://www.coursera.org/teach/uol-graphics-programming/PjESn54jEey9ig43bzvlxw/grading/assignment-grading/Cg7EC/submission/")) 
-{
+    if(urls[url].href && urls[url].href.startsWith("https://www.coursera.org/teach/uol-graphics-programming/PjESn54jEey9ig43bzvlxw/grading/assignment-grading/Cg7EC/submission/")) {
         rtn[urls[url].innerText] = urls[url].href;
     }
 }
@@ -13,35 +11,41 @@ console.log("Scanning for assignments... please wait. Each student will take 20 
 
 let list = Object.entries(rtn);
 
-for(var index = 0; index < list.length; index++) {
+var w;
+var timeout;
 
-    let item = list[index];
-    if(index > 1) continue;
+function waitUntilLoaded(resolve) {
+    console.log("waiting...");
 
-    let id = item[0]; // student id
-    let url = item[1]; // url to student zip download and grading page
+    // we use this approach to avoid problems with browsers / tabs / setInterval !
+    setTimeout(() => {
+        timeout++;
+        if((w.document.documentElement.innerText && w.document.documentElement.innerText.indexOf("Submission & Grading") > -1) || timeout > 40) resolve();
+        else waitUntilLoaded(resolve);
+    }, 500);
+}
 
-    var w = window.open(url, "_blank"); // open in a new tab otherwise 
-this process will terminate !
-    await new Promise(resolve => { setTimeout(resolve, 20000) }); // hack 
-sleep 10 seconds
+for(var index = 0; index < list.length; index++) { // loop through all students
 
-    var urls = w.document.getElementsByTagName('a'); // get the potential 
-urls
+    let id = list[index][0]; // student id
+    let url = list[index][1]; // url to student zip download and grading page
+
+    w = window.open(url, "_blank"); // open in a new tab otherwise this process will terminate !
+
+    timeout = 0;
+    await new Promise(resolve => waitUntilLoaded(resolve)); // a bit of a hack to wait until the page loads properly, or we timeout
+
+    var urls = w.document.getElementsByTagName('a'); // get the potential urls
     var zipLinks = [];
     for (url in urls) { // extract the urls we need (zip files)
-        if(urls[url].href && 
-urls[url].href.includes("https://coursera-assessments.s3.amazonaws.com/assessments/")) 
-{
+        if(urls[url].href && urls[url].href.includes("https://coursera-assessments.s3.amazonaws.com/assessments/")) {
             zipLinks.push(urls[url].href);
         }
     }
 
+    w.close(); // close the tab so we don't make a mess
     rtn[id] = zipLinks; // replace the student data with the url links
-
-    console.log("Found " + zipLinks.length + " zip files for student " + 
-id + ".");
+    console.log(index + ": Found " + zipLinks.length + " zip files for student " + id + ".");
 }
 
-console.log(rtn);
-
+console.log(rtn); // output the object
