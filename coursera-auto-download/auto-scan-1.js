@@ -9,8 +9,7 @@ urls[url].href.startsWith("https://www.coursera.org/teach/uol-graphics-programmi
 }
 
 console.log("Found " + Object.keys(rtn).length + " students.");
-console.log("Scanning for assignments... please wait. Each student will 
-take 20 seconds unless you can find a way to detect page loaded state ?");
+console.log("Scanning for assignments... please wait. Each student will take 20 seconds unless you can find a way to detect page loaded state ?");
 
 let list = Object.entries(rtn);
 
