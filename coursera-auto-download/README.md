@@ -14,6 +14,6 @@ Hopefully it will save you some time ! I successfully downloaded all my student 
 
 *NOTES*
 
-1. Chrome seems not to like too many setTimeouts and during tests I found it slowed down after scanning around 33 students. If you leave it, it will still work, but you may want to limit the number of students downloaded at once via the START_INDEX and END_INDEX. Maybe split your scans into two parts (0-24, 25-49) ?
+1. Chrome seems not to like too many `setTimeout` commands and during tests I found it slowed down after scanning around 33 students. If you leave it, it will still work, but you may want to limit the number of students downloaded at once via the `START_INDEX` and `END_INDEX`. Maybe split your scans into two parts (0-24, 25-49) ?
 2. Since hacky code like this is a bit of an art, once I had to reboot my computer to reset Chrome because it got into a bit of a mess and wouldn't open the new tabs when the program was run.
-3. The bash code seems to be missing for some reason, so you'll have to unzip manually. However, it appears as a comment to remind me to add the unzip code later, so you can probably add it yourself if you wanted to have it auto unzip ! (see the bash filee `# unzip` line)
+3. The `unzip` command is not present in the bash script for some reason, I must have not saved it out properly, so you'll have to unzip manually or try adding it yourself. I will add this to the repo at a later date.
