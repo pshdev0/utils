@@ -22,7 +22,7 @@ I will update the code at a later point so that it downloads a maximum of 25, sa
 1. Open up a bash terminal and run e.g. `sh auto-download-3.sh` to process the text file.
 2. The bash script will automatically create student ID folders and download all the zip files.
 
-*WARNING* - there is an `unzip` command in there too, but I commented it out as I haven't had time to test it yet. You may want to uncomment it and give it a whirl.
+*NOTE* - I seem to be missing the `unzip` command, so it just appears as a tentative comment ATM, so will add it at a later date!
 
 **Summary**
 
