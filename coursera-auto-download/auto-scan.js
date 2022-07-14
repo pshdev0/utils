@@ -56,6 +56,6 @@ console.log(rtn); // output the object
 var output = "";
 let list2 = Object.entries(rtn);
 for(var c1 = START_INDEX; c1 < Math.min(END_INDEX, list2.length); c1++) {
-    output += [list2[c1][0], list2[c1][1].length, ...list2[c1][1]].join("\n") + "\n";
+    output += [list2[c1][0], list2[c1][1].length, list2[c1][1]].join("\n") + "\n";
 }
 console.log(output);
