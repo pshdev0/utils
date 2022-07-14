@@ -2,6 +2,8 @@ Automatically scan Coursera to download student IDs and associated ZIP files.
 
 **Steps**
 
+*This was written on Mac, but should work on Linux*
+
 1. Go to `Coursera / Edit courses / Grading / Submission of graded programming assignments [001]`, or whichever list of student IDs you're interested in.
 2. Open the Developer Console and paste in the code from `auto-scan.js` file. Press Enter.
 3. This will scan the current page for relevant URLs and automatically open / close the student pages and scan them for ZIP file URLs.
@@ -12,15 +14,25 @@ Automatically scan Coursera to download student IDs and associated ZIP files.
 
 Hopefully it will save you some time ! I successfully downloaded all my student zip files automatically (around 50)
 
-**Further Automation**
-
-I'm trialling opening up all my student windows (or at least 20 at a time) on separate Workspaces. However, this is a bit laborious, so I've written some more scripts to automate setting up my desktop.
-
-1. Run: ``
-
 *NOTES*
 
 1. Chrome seems not to like too many `setTimeout` commands and during tests I found it slowed down after scanning around 33 students. If you leave it, it will still work, but you may want to limit the number of students downloaded at once via the `START_INDEX` and `END_INDEX`. Maybe split your scans into two parts (0-24, 25-49) ?
 2. Since hacky code like this is a bit of an art, once I had to reboot my computer to reset Chrome because it got into a bit of a mess and wouldn't open the new tabs when the program was run.
 3. The `unzip` command is not present in the bash script for some reason, I must have not saved it out properly, so you'll have to unzip manually or try adding it yourself. I will add this to the repo at a later date.
 4. You may also need to make sure the http links in the JS code match those for your Coursera student pages. You can find out by clicking a student ID and comparing the URL it shows against that in the JS code.
+
+**Further Automation**
+
+*This automation was written on Linux Mint, but should work on Mac too*
+
+I'm trialling opening up all my student windows (or at least 20 at a time) on separate Workspaces. However, this is a bit laborious, so I've written some more scripts to automate setting up my desktop.
+
+1. Make sure you have enough Workspaces open for each student + a couple extra for yourself.
+2. Run the `auto-student-list.js` in the Chrome developer console.
+3. The result will be stored in the clipboard, so paste it into another file, called `data.txt`.
+4. Run `bash w1.sh 0 5` to process student IDs 0, 1, 2, 3, 4.
+5. This will open 5 Chrome windows, each with the URL to the student assignment marking page.
+6. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces
+7. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspace.
+
+It saves me that bit extra time and labour setting up my desktop windows when I move on to the next batch of students.
