@@ -1,9 +1,10 @@
 // this code forms part of one of the other larger auto files
 //
-// open your 
+// Go Coursera / Edit courses / Grading / Submission of graded programming assignments [001]
 //
+// Paste this code into the develoepr console and run.
 //
-//
+// A list of student IDs and the student assignment page URLs will be copied to the clipboard
 
 var START_INDEX = 0;
 var END_INDEX = 50;
