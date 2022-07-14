@@ -12,6 +12,12 @@ Automatically scan Coursera to download student IDs and associated ZIP files.
 
 Hopefully it will save you some time ! I successfully downloaded all my student zip files automatically (around 50)
 
+**Further Automation**
+
+I'm trialling opening up all my student windows (or at least 20 at a time) on separate Workspaces. However, this is a bit laborious, so I've written some more scripts to automate setting up my desktop.
+
+1. Run: ``
+
 *NOTES*
 
 1. Chrome seems not to like too many `setTimeout` commands and during tests I found it slowed down after scanning around 33 students. If you leave it, it will still work, but you may want to limit the number of students downloaded at once via the `START_INDEX` and `END_INDEX`. Maybe split your scans into two parts (0-24, 25-49) ?
