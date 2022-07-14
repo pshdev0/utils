@@ -5,7 +5,7 @@ Automatically scan Coursera to download student IDs and associated ZIP files.
 1. Go to `Coursera / Edit courses / Grading / Submission of graded programming assignments [001]`, or whichever list of student IDs you're interested in.
 2. Open the Developer Console and paste in the code from `auto-scan.js` file. Press Enter.
 3. This will scan the current page for relevant URLs and automatically open / close the student pages and scan them for ZIP file URLs.
-4. Once completed you'll see a list of student IDs, # zips, and zip file url links, which you need to copy into a text file.
+4. Once completed you'll a list of student IDs, # zips, and zip file url links will be copied to the clipboard, which you can paste into a text file.
 
 5. Once you've got all the data into a text file (call it `data.txt`), copy it into a folder of your choice.
 6. Copy the bash script into the same folder and run it with `sh auto-download.sh` to process the text file, which will automatically create student ID folders and download all the zip files.
