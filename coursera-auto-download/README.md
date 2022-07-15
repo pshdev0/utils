@@ -21,18 +21,20 @@ Hopefully it will save you some time ! I successfully downloaded all my student 
 3. The `unzip` command is not present in the bash script for some reason, I must have not saved it out properly, so you'll have to unzip manually or try adding it yourself. I will add this to the repo at a later date.
 4. You may also need to make sure the http links in the JS code match those for your Coursera student pages. You can find out by clicking a student ID and comparing the URL it shows against that in the JS code.
 
-**Further Automation**
+**FURTHER AUTOMATION**
 
 *This automation was written on Linux Mint, but should work on Mac too*
 
-I'm trialling opening up all my student windows (or at least 20 at a time) on separate Workspaces. However, this is a bit laborious, so I've written some more scripts to automate setting up my desktop.
+I'm trialling opening up all my student windows (actually around 25 at a time) on separate Workspaces so that I can mark in parallel. However, this is a bit laborious, so I've written some more scripts to automate setting up my workspaces.
 
 1. Make sure you have enough Workspaces open for each student + a couple extra for yourself.
-2. Run the `auto-student-list.js` in the Chrome developer console.
+2. Run the `auto-student-list.js` in the Chrome developer console (this is just a small part of the original automation scripts).
 3. The result will be stored in the clipboard, so paste it into another file, called `data.txt`.
-4. Run `bash w1.sh 0 5` to process student IDs 0, 1, 2, 3, 4.
-5. This will open 5 Chrome windows, each with the URL to the student assignment marking page.
-6. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces
-7. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspace.
+4. Run `bash w1.sh 0 5` to process student IDs 0, 1, 2, 3, 4. Change the arguments, e.g. "25 49" for different student ranges.
+5. This example will open 5 Chrome windows, each with the URL to the student assignment marking page.
+6. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces automatically for you.
+7. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspaces.
 
-It saves me that bit extra time and labour setting up my desktop windows when I move on to the next batch of students.
+It saves me a lot of time and labour setting up my desktop workspaces and windows.
+
+PS I can report parallel workspace marking seems to work quite well - at least for me - I prefer it at the moment because I can keep my mind focused on a single question for each student before moving to the next.
