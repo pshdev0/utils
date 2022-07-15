@@ -36,5 +36,3 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 7. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspaces.
 
 It saves me a lot of time and labour setting up my desktop workspaces and windows.
-
-PS I can report parallel workspace marking seems to work quite well because I can keep my mind focused on a single question for each student before moving to the next.
