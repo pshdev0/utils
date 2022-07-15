@@ -37,4 +37,6 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 
 *TIP* before running script `w1.sh` open up your Chrome broweser and change its pose to the position/size you'd like all consecutively opened windows open.
 
+*CAVEAT* These two scripts work, but are probably a bit buggy and need more testing for sure !
+
 It saves me a lot of time and labour setting up my desktop workspaces and windows.
