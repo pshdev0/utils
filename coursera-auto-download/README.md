@@ -35,4 +35,6 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 6. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces automatically for you.
 7. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspaces.
 
+*TIP* before running script `w1.sh` open up your Chrome broweser and change its pose to the position/size you'd like all consecutively opened windows open.
+
 It saves me a lot of time and labour setting up my desktop workspaces and windows.
