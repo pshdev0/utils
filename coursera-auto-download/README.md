@@ -29,7 +29,7 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 
 1. Make sure you have enough Workspaces open for each student + a couple extra for yourself.
 2. Run the `auto-student-list.js` in the Chrome developer console (this is just a small part of the original automation scripts).
-3. The result will be stored in the clipboard, so paste it into another file, called `data.txt`.
+3. The result will be stored in the clipboard, so paste it into another file, called `data.txt` (note that `data.txt` has different contents to the original `data.txt` above so yo may want to use a different name - I should change this in future)
 4. Run `bash w1.sh 0 5` to process student IDs 0, 1, 2, 3, 4. Change the arguments, e.g. "25 49" for different student ranges.
 5. This example will open 5 Chrome windows, each with the URL to the student assignment marking page.
 6. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces automatically for you.
