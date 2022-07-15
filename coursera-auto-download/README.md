@@ -37,4 +37,4 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 
 It saves me a lot of time and labour setting up my desktop workspaces and windows.
 
-PS I can report parallel workspace marking seems to work quite well - at least for me - I prefer it at the moment because I can keep my mind focused on a single question for each student before moving to the next.
+PS I can report parallel workspace marking seems to work quite well because I can keep my mind focused on a single question for each student before moving to the next.
