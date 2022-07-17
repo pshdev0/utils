@@ -25,7 +25,7 @@ Hopefully it will save you some time ! I successfully downloaded all my student 
 
 *This automation was written on Linux Mint, but should work on Mac too*
 
-I'm trialling opening up all my student windows (actually around 25 at a time) on separate Workspaces so that I can mark in parallel. However, this is a bit laborious, so I've written some more scripts to automate setting up my workspaces.
+Another useful script opens up all my student windows (actually around 25 at a time) on separate Workspaces. This is useful to remove some of the laborious tasks involved in mass student marking. My original plan was to mark in parallel, but in the end I found it easier just to mark each assignment in full before moving on to the next. Repeating this 4 times for each assignment completes the grading !
 
 1. Make sure you have enough Workspaces open for each student + a couple extra for yourself.
 2. Run the `auto-student-list.js` in the Chrome developer console (this is just a small part of the original automation scripts).
@@ -35,5 +35,3 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 6. This example will open 5 Chrome windows, each with the URL to the student assignment marking page.
 7. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces automatically for you.
 8. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspaces.
-
-It saves me a lot of time and labour setting up my desktop workspaces and windows. I fixed the previous bug which caused problems opening ranges whose start range was > 0. Should work fine now.
