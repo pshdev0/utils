@@ -25,7 +25,7 @@ Hopefully it will save you some time ! I successfully downloaded all my student 
 
 *This automation was written on Linux Mint, but should work on Mac too*
 
-Another useful script opens up all my student windows (I open around 25 at a time) on separate Workspaces. This is useful to remove some of the laborious tasks involved in mass student marking. My original plan was to mark in parallel, but in the end I found it easier just to mark each assignment in full before moving on to the next. Repeating this 4 times for each assignment completes the grading !
+Another useful script opens up all my student windows (I open around 25 at a time) on separate Workspaces. This is useful to remove some of the laborious tasks involved in mass student marking. My original plan was to mark in parallel, but in the end I found it easier just to mark each assignment in full before moving on to the next. Repeating this for each assignment for each student completes the grading !
 
 1. Make sure you have enough Workspaces open for each student + a couple extra for yourself.
 2. Run the `auto-student-list.js` in the Chrome developer console (this is just a small part of the original automation scripts).
