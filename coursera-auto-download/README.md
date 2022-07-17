@@ -36,6 +36,4 @@ I'm trialling opening up all my student windows (actually around 25 at a time) o
 7. It will also open 5 desktop folders showing the student projects AND it will move them to different workspaces automatically for you.
 8. Next run `bash w2.sh` which will automatically move the Chrome windows to the corresponding workspaces.
 
-*NOTE* These two scripts worked for me in the range 0-20, but today for 20-50 they seem a little buggy so I need to debug them for sure !
-
-It saves me a lot of time and labour setting up my desktop workspaces and windows.
+It saves me a lot of time and labour setting up my desktop workspaces and windows. I fixed the previous bug which caused problems opening ranges whose start range was > 0. Should work fine now.
