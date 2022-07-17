@@ -8,6 +8,10 @@
 
 # next run "bash w2.sh" to move the student web pages to the corresponding workspace.
 
+#!/bin/bash
+
+assignmentFolder="/home/paul/Teaching/Goldsmiths/CM2030 - Copmuter Graphics/Mid-term marking/Student Assignments/"
+
 input="./data.txt"
 
 echo "Opening windows"
@@ -15,6 +19,7 @@ echo "Opening windows"
 startindex=$1
 endindex=$2
 count=0
+count2=0
 
 while IFS= read -r studentid
 do
@@ -22,12 +27,13 @@ do
   read -r url
 
   if  [[ $count -ge $startindex && $count -lt $endindex ]]; then
+  echo $studentid $url
+
     google-chrome $url --args --new-window &
-    echo "/home/paul/Teaching/Goldsmiths/CM2030 - Copmuter Graphics/Mid-term marking/Student Assignments/"$studentid
-    echo ""
-    xdg-open "/home/paul/Teaching/Goldsmiths/CM2030 - Copmuter Graphics/Mid-term marking/Student Assignments/"$studentid &
+    xdg-open $assignmentFolder$studentid &
     sleep 5
-    wmctrl -r $studentid -t $(($count+1))
+    wmctrl -r $studentid -t $(($count2+1))
+    count2=$((count2+1))
   fi
 
 
@@ -35,4 +41,5 @@ do
 
 done < "$input"
 
+rm windows.txt
 wmctrl -l | grep Coursera | sed 's/ .*//' > windows.txt
