@@ -30,7 +30,7 @@ do
   echo $studentid $url
 
     google-chrome $url --args --new-window &
-    xdg-open $assignmentFolder$studentid &
+    xdg-open "$assignmentFolder"$studentid &
     sleep 5
     wmctrl -r $studentid -t $(($count2+1))
     count2=$((count2+1))
