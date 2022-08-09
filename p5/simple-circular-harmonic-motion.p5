@@ -1,0 +1,23 @@
+let dt = 0.05;
+
+var xx, ff, aa, vv;
+
+function setup() {
+
+  createCanvas(500, 500);
+  pos = createVector(1, 0);
+  vv = createVector(0, 1);
+}
+
+function draw() {
+    background(0);
+  
+    ff = pos.copy().mult(-1);
+    aa = ff.copy();
+  
+    vv = vv.add(aa.x * dt, aa.y * dt);
+    pos = pos.add(vv.x * dt, vv.y * dt);
+
+    rect(250 + 100 * pos.x, 250 + 100 * pos.y, 20, 20);
+}
+
