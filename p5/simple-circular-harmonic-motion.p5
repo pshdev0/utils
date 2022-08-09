@@ -1,10 +1,14 @@
 let dt = 0.05;
+let r = 100;
 
 var xx, ff, aa, vv;
 
 function setup() {
 
   createCanvas(500, 500);
+
+  centre = createVector(250, 250);
+  
   pos = createVector(1, 0);
   vv = createVector(0, 1);
 }
@@ -18,6 +22,5 @@ function draw() {
     vv = vv.add(aa.x * dt, aa.y * dt);
     pos = pos.add(vv.x * dt, vv.y * dt);
 
-    rect(250 + 100 * pos.x, 250 + 100 * pos.y, 20, 20);
+    rect(centre.x + r * pos.x, centre.y + r * pos.y, 20, 20);
 }
-
