@@ -1,4 +1,5 @@
-Automatically scan Coursera to download student IDs and associated ZIP files.
+Automatically scan Coursera to download student IDs and associated ZIP files. Seems a bit bugger since 
+the last cohort - probably due to Chrome updates, so may need a bit of tweaking !
 
 **Steps**
 
