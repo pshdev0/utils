@@ -1,3 +1,11 @@
+/*
+ *      this marking helper function will scan all directories for files of a certain name
+ *      and extract functions of interest, putting them all into one extract.js file
+ * 
+ *      so you don't have to switch between many different files for marking !
+ * 
+ */
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.Path;
